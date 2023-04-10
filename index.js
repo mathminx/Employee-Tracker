@@ -2,11 +2,10 @@
 const inquirer = require("inquirer");
 const server = require("./server")
 const queries = require("./db/queries");
-const consoleTable = require('console.table');
 
 // Function to initialize the application
-async function init(db) {
-  server.startServer() 
+async function menu() {
+  const db = server.startServer();
     await Promise.resolve();
   inquirer
     .prompt(selections) 
@@ -18,29 +17,28 @@ async function init(db) {
           break;
         case "View Roles":
           console.log(userSelection)
-          queries.viewRoles();
+          queries.viewRoles(db);
           break;
         case "View Employees":
           console.log(userSelection)
-          queries.viewEmployees();
+          queries.viewEmployees(db);
           break;
         case "Add a Department":
-          console.log(userSelection)
-          addDepartment();
+          queries.addDepartment(db);
           break;
-          case "Add a Role":
-            console.log(userSelection)
-            addRole();
-            break;
-          case "Add a Employee":
-            console.log(userSelection)
-            addEmployee();
-            break;
-          case "Update an Employee's Role":
-            updateEmployeeRole();
-            break;
-          default:
-            text = "Looking forward to the Weekend";
+        case "Add a Role":
+          queries.addRole(db);
+          break;
+        case "Add a Employee":
+          queries.addEmployee(db);
+          break;
+        case "Update an Employee's Role":
+          queries.updateEmployeeRole(db);
+          break;
+        case "Quit":
+          process.exit();
+        default:
+          text = "That is not a valid choice";
       }
     });
 };
@@ -51,8 +49,10 @@ const selections = [
     type: "rawlist",
     message: "Choose an option.",
     name: "selected",
-    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role"],
+    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Quit"],
   }
 ];
 
-init();
+menu();
+
+module.exports = {menu, inquirer}
