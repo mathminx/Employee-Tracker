@@ -10,10 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "console-table-printer": "^2.11.1",
     "console.table": "^0.10.0",
     "dotenv": "^16.0.3",
     "inquirer": "^8.2.4",
     "mysql": "^2.18.1",
-    "mysql2": "^3.2.0"
+    "mysql2": "^3.2.0",
+    "prompt-sync": "^4.2.0",
+    "wait-console-input": "^0.1.7"
+  },
+  "devDependencies": {
+    "press-any-key": "^0.1.1"
   }
 }

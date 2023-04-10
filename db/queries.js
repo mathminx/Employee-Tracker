@@ -1,4 +1,4 @@
-function viewDepartments() {
+function getDatabase() {
   // Import and require mysql2
   const mysql = require('mysql2');
   // Connect to database
@@ -11,84 +11,63 @@ function viewDepartments() {
       password: 'bergus33',
       database: 'company_db'
     },
-    console.log(`\nFetching Departments...\n`)
+  console.log(`\Connecting to the database\n`)
   );
-  // Query department database
-  const departments = db.query (
+  return db;
+};
+
+// View department database
+function viewDepartments () {
+  console.log(`\nFetching Departments...\n`)
+  const {printTable} = require("console-table-printer");
+  const db = getDatabase();
+  db.query (
     'SELECT * FROM department', function (err, results) {
-    console.table(results);
+    printTable(results);
   });
 };
 
+// View role database
 function viewRoles() {
-  // Import and require mysql2
-  const mysql = require('mysql2');
-  // Connect to database
-  const db = mysql.createConnection(
-    {
-      host: 'localhost',
-      // MySQL username,
-      user: 'root',
-      // MySQL password
-      password: 'bergus33',
-      database: 'company_db'
-    },
-    console.log(`\nFetching Departments...\n`)
-  );
-  // Query role database
-  const roles = db.query (
+  console.log(`\nFetching Roles...\n`)
+  const {printTable} = require("console-table-printer");
+  const db = getDatabase();
+  db.query (
     'SELECT * FROM role', function (err, results) {
-    console.table(results);
+    printTable(results);
   });
 };
 
+// View employee database
 function viewEmployees() {
-  // Import and require mysql2
-  const mysql = require('mysql2');
-  // Connect to database
-  const db = mysql.createConnection(
-    {
-      host: 'localhost',
-      // MySQL username,
-      user: 'root',
-      // MySQL password
-      password: 'bergus33',
-      database: 'company_db'
-    },
-    console.log(`\nFetching Departments...\n`)
-  );
-  // Query employee database
-  const employees = db.query (
+  console.log(`\nFetching Employees...\n`)
+  const {printTable} = require("console-table-printer");
+  const db = getDatabase();
+  db.query (
     'SELECT * FROM employee', function (err, results) {
-    console.table(results);
+    printTable(results);
   });
 };
 
-/*
 function addDepartment() {
-  // Array of questions for user input
-  const whichDepartment = [
-    {
-      type: "input",
-      message: "What is the name of the department you want to add?",
-      name: "name",
-    }
-  ];
-  // Import and require mysql2
-  const mysql = require('mysql2');
-  // Connect to database
-  const db = mysql.createConnection(
-    {
-      host: 'localhost',
-      // MySQL username,
-      user: 'root',
-      // MySQL password
-      password: 'bergus33',
-      database: 'company_db'
-    },
-    console.log(`\nFetching Departments...\n`)
-  );
+  const inquirer = require("inquirer");
+  const db = getDatabase();
+  inquirer
+    .prompt(departmentName) 
+    .then((response) => {
+      const newDepartment = response.name;
+      db.query (`INSERT INTO department (name) VALUES ("${newDepartment}")`);
+      console.log(newDepartment + " added to department table.");
+      viewDepartments ();
+    });
 }
-*/
 
-module.exports = {viewDepartments, viewRoles, viewEmployees /*, addDepartment*/};
+const departmentName = [
+  {
+    type: "input",
+    message: "What is the name of the department you want to add?",
+    name: "name",
+  }
+]
+
+module.exports = {viewDepartments, viewRoles, viewEmployees, addDepartment};
