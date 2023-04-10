@@ -2,10 +2,11 @@
 const inquirer = require("inquirer");
 const server = require("./server")
 const queries = require("./db/queries");
+const consoleTable = require('console.table');
 
 // Function to initialize the application
-async function menu() {
-  const db = server.startServer();
+async function init(db) {
+  server.startServer() 
     await Promise.resolve();
   inquirer
     .prompt(selections) 
@@ -16,29 +17,25 @@ async function menu() {
           queries.viewDepartments();
           break;
         case "View Roles":
-          console.log(userSelection)
-          queries.viewRoles(db);
+          queries.viewRoles();
           break;
         case "View Employees":
-          console.log(userSelection)
-          queries.viewEmployees(db);
+          queries.viewEmployees();
           break;
         case "Add a Department":
-          queries.addDepartment(db);
+          queries.addDepartment();
           break;
         case "Add a Role":
-          queries.addRole(db);
+          queries.addRole();
           break;
-        case "Add a Employee":
-          queries.addEmployee(db);
+        case "Add an Employee":
+          queries.addEmployee();
           break;
         case "Update an Employee's Role":
-          queries.updateEmployeeRole(db);
+          queries.updateEmployeeRole();
           break;
-        case "Quit":
-          process.exit();
         default:
-          text = "That is not a valid choice";
+          text = "Looking forward to the Weekend";
       }
     });
 };
@@ -49,10 +46,8 @@ const selections = [
     type: "rawlist",
     message: "Choose an option.",
     name: "selected",
-    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Quit"],
+    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role"],
   }
 ];
 
-menu();
-
-module.exports = {menu, inquirer}
+init();
