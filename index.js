@@ -17,30 +17,25 @@ async function init(db) {
           queries.viewDepartments();
           break;
         case "View Roles":
-          console.log(userSelection)
           queries.viewRoles();
           break;
         case "View Employees":
-          console.log(userSelection)
           queries.viewEmployees();
           break;
         case "Add a Department":
-          console.log(userSelection)
-          addDepartment();
+          queries.addDepartment();
           break;
-          case "Add a Role":
-            console.log(userSelection)
-            addRole();
-            break;
-          case "Add a Employee":
-            console.log(userSelection)
-            addEmployee();
-            break;
-          case "Update an Employee's Role":
-            updateEmployeeRole();
-            break;
-          default:
-            text = "Looking forward to the Weekend";
+        case "Add a Role":
+          queries.addRole();
+          break;
+        case "Add an Employee":
+          queries.addEmployee();
+          break;
+        case "Update an Employee's Role":
+          queries.updateEmployeeRole();
+          break;
+        default:
+          text = "Looking forward to the Weekend";
       }
     });
 };
