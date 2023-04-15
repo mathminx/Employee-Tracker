@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 // Import and require package to print tables in the console
 const {printTable} = require("console-table-printer");
 
-// Connect to database
+// Connect to mySQL and the company database
 const db = mysql.createConnection(
   {
     host: 'localhost',
@@ -16,14 +16,13 @@ const db = mysql.createConnection(
     database: 'company_db'
   },
 );
-
 db.connect(function(err) {
   if (err) throw err;
   console.log("Connected to company database.");
   getMenu();
 });
 
-
+// Display the menu to the user
 function getMenu () {
   inquirer
     .prompt(menu) 
@@ -51,17 +50,30 @@ function getMenu () {
         case "Update an Employee's Role":
           updateEmployeeRole();
           break;
+        case "Update an Employee's Manager":
+          updateEmployeeManager();
+          break;  
+        case "Delete a Department":
+          deleteDepartment();
+          break;
+        case "Delete a Role":
+          deleteRole();
+          break;
+        case "Delete an Employee":
+          deleteEmployee();
+          break;     
         case "Quit":
-            db.end();
+        console.log("Goodbye.");
+        db.end();
       };
     });
 };
 
-// View department database
+// View department table
 function viewDepartments () {
   console.log(`\nFetching Departments...\n`);
   db.query(
-    'SELECT * FROM department', function (err, results) {
+    'SELECT id AS Department_ID, name AS Department_Name FROM department', function (err, results) {
       if (err)
         throw(err);
       console.log(`\n`);
@@ -69,14 +81,13 @@ function viewDepartments () {
       console.log(`\n`);
       getMenu();
   });
-  
 };
 
-// View role database
+// View role table
 function viewRoles() {
   console.log(`\nFetching Roles...\n`)
   db.query (
-    'SELECT role.id, title, salary, department.name AS departmentName FROM role LEFT JOIN department ON role.department_id=department.id;', function (err, results) {
+    'SELECT role.id AS Role_ID, title AS Title, FORMAT(salary, 2) AS Salary, department.name AS Department_Name FROM role LEFT JOIN department ON role.department_id=department.id;', function (err, results) {
       if (err)
         throw(err);
       console.log(`\n`);
@@ -86,11 +97,11 @@ function viewRoles() {
   });
 };
 
-// View employee database
+// View employee table
 function viewEmployees() {
   console.log(`\nFetching Employees...\n`)
   db.query (
-    'SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name, manager.first_name AS managerFirstName, manager.last_name AS managerLastName FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id LEFT JOIN employee AS manager ON manager.id = employee.manager_id', function (err, results) {
+    'SELECT employee.id AS Employee_ID, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name, role.title AS Role, FORMAT(role.salary, 2) AS Salary, department.name AS Department_Name, CONCAT_WS(" ", manager.first_name,  manager.last_name) AS Manager_Name FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id LEFT JOIN employee AS manager ON manager.id = employee.manager_id', function (err, results) {
       if (err)
         throw(err);
     printTable(results);
@@ -99,8 +110,7 @@ function viewEmployees() {
   });
 };
 
-
-
+// Add a Department
 function addDepartment() {
   inquirer
     .prompt(newDepartment) 
@@ -117,6 +127,7 @@ function addDepartment() {
     });
 }
 
+// Add a Role
 function addRole() {
   inquirer
     .prompt(newRole) 
@@ -133,6 +144,7 @@ function addRole() {
   });
 }
 
+// Add an Employee
 function addEmployee() {
   inquirer
     .prompt(newEmployee) 
@@ -152,6 +164,7 @@ function addEmployee() {
     });
 }
 
+// Change an employee's role
 function updateEmployeeRole() {
   inquirer
     .prompt(changeEmployeeRole) 
@@ -162,6 +175,65 @@ function updateEmployeeRole() {
       console.log("Employee role updated.");
       viewEmployees ();
     });
+}
+
+// Change an employee's manager
+function updateEmployeeManager() {
+  inquirer
+    .prompt(changeEmployeeManager) 
+    .then((response) => {
+      const employeeId = response.employeeId;
+      const newManagerId = response.managerId;
+      db.query (`UPDATE employee SET manager_id=${newManagerId} WHERE id=${employeeId};`);
+      console.log("Employee manager updated.");
+      viewEmployees ();
+    });
+}
+
+// Delete a Department
+function deleteDepartment() {
+  inquirer
+    .prompt(delDepartment) 
+    .then((response) => {
+      const id = response.id;
+      db.query (`DELETE FROM department WHERE id = ${id}`, function (err, results) {
+        if (err)
+          throw(err);
+        console.log(`Department ${id} deleted.`);
+        viewDepartments();
+      });
+      
+    });
+}
+
+// Delete a Role
+function deleteRole() {
+  inquirer
+    .prompt(delRole) 
+    .then((response) => {
+      const id = response.id;
+      db.query (`DELETE FROM role WHERE id = ${id}`, async function (err, results) {
+        if (err)
+          throw(err);
+      console.log(`Role ${id} deleted.`);
+      viewRoles();
+    });
+  });
+}
+
+// Delete an Employee
+function deleteEmployee() {
+  inquirer
+    .prompt(delEmployee) 
+    .then((response) => {
+      const id = response.id;
+      db.query (`DELETE FROM employee WHERE id = ${id}`, function (err, results) {
+        if (err)
+          throw(err);
+      console.log(`Employee ${id} deleted.`);
+      viewEmployees ();
+    });
+  });
 }
 
 const newDepartment = [
@@ -226,12 +298,49 @@ const changeEmployeeRole = [
   }
 ]
 
+const changeEmployeeManager = [
+  {
+    type: "input",
+    message: "What is the employee's id?",
+    name: "employeeId",
+  },
+  {
+    type: "input",
+    message: "What is the employee's new manager's id?",
+    name: "managerId",
+  }
+]
+
+const delDepartment = [
+  {
+    type: "input",
+    message: "What is the id of the department you want to delete?",
+    name: "id",
+  }
+]
+
+const delRole = [
+  {
+    type: "input",
+    message: "What is the id of the role you want to delete?",
+    name: "id",
+  }
+]
+
+const delEmployee = [
+  {
+    type: "input",
+    message: "What is the id of the employee you want to delete?",
+    name: "id",
+  }
+]
+
 // Main Menu
 const menu = [
   {
     type: "rawlist",
     message: "What would you like to do?",
     name: "selected",
-    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Quit"],
+    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Update an Employee's Manager", "Delete a Department", "Delete a Role", "Delete an Employee", "Quit"],
   }
 ];
