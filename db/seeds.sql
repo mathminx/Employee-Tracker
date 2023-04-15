@@ -1,25 +1,25 @@
 INSERT INTO department (name)
-VALUES ("Executive"),
+VALUES ("Executives"),
        ("Finance"),
-       ("Human Resources"),
        ("Sales"),
-       ("Administration"),
+       ("Human Resources"),
+       ("Operations"),
        ("Distribution");
 
 INSERT INTO role (title, salary, department_id)
 VALUES ("Regional Manager", 100000, 1),
        ("Senior Accountant", 80000, 2),
-       ("Sales Manager", 80000, 4), 
-       ("Warehouse Foreman", 55000, 6),
-       ("Human Resources", 80000, 3),
-       ("Quality Control", 50000, 5),
-       ("Supplier Relations", 50000, 5),
-       ("Customer Service", 35000, 5),
-       ("Reception", 35000, 5),
-       ("Temporary Worker", 25000, 5), 
        ("Accountant", 70000, 2), 
-       ("Sales", 60000, 4), 
-       ("Warehouse Worker", 40000, 6);
+       ("Sales Manager", 80000, 3),
+       ("Sales Representative", 60000, 3), 
+       ("Human Resources Representative", 80000, 4),
+       ("Quality Control Specialist", 50000, 5),
+       ("Supplier Relations Representative", 50000, 5),
+       ("Customer Service Representative", 35000, 5),
+       ("Receptionist", 35000, 5),
+       ("Temporary Employee", 25000, 5);
+       ("Warehouse Foreman", 55000, 6),
+       ("Warehouse Worker", 40000, 6),
        
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Michael", "Scott", 1, null),
@@ -31,7 +31,6 @@ VALUES ("Michael", "Scott", 1, null),
        ("Meredith", "Palmer", 7, 1),
        ("Kelly", "Kapoor", 8, 1),
        ("Pam", "Beesly", 9, 1),
-       ("Ryan", "Howard", 10, 1),
        ("Kevin", "Malone", 11, 2),
        ("Oscar", "Martinez", 11, 2),
        ("Jim", "Halpert", 12, 3),
@@ -41,6 +40,8 @@ VALUES ("Michael", "Scott", 1, null),
        ("Roy", "Anderson", 13, 4),
        ("Jerry", "DiCanio", 13, 4),
        ("Madge", "Madsen", 13, 4),
-       ("Lonnie", "Collins", 13, 4);
+       ("Lonnie", "Collins", 13, 4),
+       ("Ryan", "Howard", 10, 1);
+
 
 

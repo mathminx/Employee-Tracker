@@ -8,7 +8,7 @@ SELECT *
 FROM employee;
 
 INSERT INTO department (name)
-VALUES (ths.name);
+VALUES (this.name);
 
 INSERT INTO role (title, salary, department_id)
 VALUES (this.title, this.salary, this.department_id);
