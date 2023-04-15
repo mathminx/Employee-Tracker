@@ -13,9 +13,13 @@ function getDatabase() {
       database: 'company_db'
     },
   );
-  console.log(`\Connected to company database.\n`)
-  return db;
+  console.log(`\Connected to company database.\n`);
+  db.query(`DROP DATABASE IF EXISTS company_db;`);
+  db.query(`CREATE DATABASE company_db;`);
+  db.query(`USE company_db;`);
+  viewEmployees();
 };
+
 
 // View employee database
 function viewEmployees() {
@@ -25,7 +29,8 @@ function viewEmployees() {
   db.query (
     'SELECT * FROM employee', function (err, results) {
     printTable(results);
+    console.log("finished");
   });
 };
 
-viewEmployees();
+//viewEmployees();

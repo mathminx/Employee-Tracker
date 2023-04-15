@@ -4,7 +4,6 @@ const mysql = require('mysql2');
 const inquirer = require("inquirer");
 // Import and require package to print tables in the console
 const {printTable} = require("console-table-printer");
-const schema = require("./db/schema");
 
 // Connect to database
 const db = mysql.createConnection(
