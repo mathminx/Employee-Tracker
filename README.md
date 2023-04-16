@@ -36,52 +36,52 @@ When you start the application, you will be presented with a menu (shown above) 
 
  5) View All Employees By Department: Displays a formatted table showing department ids and names, and the names of all employees in each department.
 
-    ![5](https://user-images.githubusercontent.com/122234007/232342376-7fa8b95c-2b3e-4876-b86a-baf5cbfedb5d.jpg)
-
+    ![5](https://user-images.githubusercontent.com/122234007/232345501-04226bd1-a06a-40bd-8b85-d15d1e5ef65f.png)
+    
  6) View A Department's Total Utilised Budget: Prompts you for the id of the department for which you want to see the total utilised budget. If you wish to see all   departments, just press enter. Displays a formatted table showing  the department name(s), and the total utilised budget for the chosen department(s).
 
-    ![6](https://user-images.githubusercontent.com/122234007/232342383-8f807eec-813f-49a2-a5f1-52869f9bcef3.jpg)
+    ![6 1](https://user-images.githubusercontent.com/122234007/232345524-cf499edb-bd0f-4993-bd30-72b1c66b4d69.png)
+    ![6 all](https://user-images.githubusercontent.com/122234007/232345517-8a993bca-fce6-4b22-ad18-316c62b9ae06.png)
 
  7) Add a Department: Prompts you for the name of the department you want to add, then displays the updated table of departments that includes the new department.
 
-    ![7](https://user-images.githubusercontent.com/122234007/232342392-12455576-4970-41e9-b0b2-f985d3fc48f7.jpg)
+    ![7](https://user-images.githubusercontent.com/122234007/232345537-4ccd00be-1440-4567-b8f6-7bfc880344b7.png)
 
  8) Add a Role: Prompts you for the name of the role you want to add, the salary for that role, and the the department id for the role, then displays the updated table of roles that includes the new role.
 
-    ![8](https://user-images.githubusercontent.com/122234007/232342403-f86b2d23-9b79-431a-a98e-97a3a7d5b0f8.jpg)
+    ![8](https://user-images.githubusercontent.com/122234007/232345547-f73bf039-57f4-48e9-9ecb-b20a42eba468.png)
 
  9) Add an Employee: Prompts you for the first name, last name, role, and manager for the new employee, then displays the updated table of employees that includes the new employee.
 
-    ![9](https://user-images.githubusercontent.com/122234007/232342409-d602c6e2-2f02-400e-8a89-19d1d258897a.jpg)
+    ![9](https://user-images.githubusercontent.com/122234007/232345553-c1548ab3-4f76-4495-b7f9-21ccabf716f4.png)
 
  10) Update an Employee's Role: Prompts you for the employee id and the id of the employee's new role, then displays the updated table of employees.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339094-2229cdc4-7db7-4cb6-9be8-dc0d56ddcccd.png)
+    ![10](https://user-images.githubusercontent.com/122234007/232345561-fcb0b848-725a-4eeb-bbca-cc1b5fbd9b10.png)
 
  11) Update an Employee's Manager: Prompts you for the employee id and the id of the employee's new manager, then displays the updated table of employees.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339117-f530cb95-0de0-403d-ba26-4e7bb298bc2f.png)
-
+    ![11](https://user-images.githubusercontent.com/122234007/232345564-abc06c78-9c86-45db-b8a1-42784991bb07.png)
 
  12) Update a Role's Salary: Prompts you for the role id and the revised salary for that role, then displays the updated table of roles.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339130-f0f6fd5b-0a01-4369-9689-34c7ec32fb17.png)
+    ![12](https://user-images.githubusercontent.com/122234007/232345575-e088558c-373b-4a60-aa88-deb3a2f13191.png)
 
  13) Delete a Department: Prompts you for the id of the department you want to delete, then displays the updated table of departments that no longer includes the deleted department.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339143-19e5734c-9f45-4b21-b00d-7eb13b3275aa.png)
+    ![13](https://user-images.githubusercontent.com/122234007/232345589-b441162e-e953-4de2-94af-a98600bc1651.png)
 
  14) Delete a Role: Prompts you for the id of the role you want to delete, then displays the updated table of roles that no longer includes the deleted role.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339167-9490ae10-b382-4aa5-aa6a-cc5ee44fb66f.png)
+    ![14](https://user-images.githubusercontent.com/122234007/232345595-1d62376a-e1c8-4543-9ee4-46d2fba0b4f7.png)
 
  15) Delete an Employee: Prompts you for the id of the employee you want to delete, then displays the updated table of employees that no longer includes the deleted employee.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339965-6c3e09e2-950a-4e5a-9fb4-08d93c7dd064.png)
+    ![15](https://user-images.githubusercontent.com/122234007/232345615-928df27c-2be6-45ac-942e-77ef42efaa3e.png)
 
  16) Quit: Quits the application and returns you to the command line.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339201-97b0b837-c307-41d0-a0c2-ca42e5141bcd.png)
+    ![16](https://user-images.githubusercontent.com/122234007/232345619-22ab1ce3-1bc3-40cb-bee7-78837a5530ba.png)
 
 
 ### Deliverables
