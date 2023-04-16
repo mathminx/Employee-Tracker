@@ -83,31 +83,18 @@ When you start the application, you will be presented with a menu (shown above) 
 
     ![image](https://user-images.githubusercontent.com/122234007/232339201-97b0b837-c307-41d0-a0c2-ca42e5141bcd.png)
 
-## Mock-Up
-
-The following video shows an example of the application being used from the command line:
-
-Design the database schema as shown in the following image:
-
-![Database schema includes tables labeled “employee,” role,” and “department.”](./Assets/12-sql-homework-demo-01.png)
 
 ### Deliverables
-* Your GitHub repository containing your application code.
 * A walkthrough video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
 * The walkthrough video must show all of the technical acceptance criteria being met.
 * The walkthrough video must demonstrate how a user would invoke the application from the command line.
 * The walkthrough video must demonstrate a functional menu with the options outlined in the acceptance criteria.
 
-## Review
-You are required to submit BOTH of the following for review:
-* A walkthrough video demonstrating the functionality of the application.
-* The URL of the GitHub repository, with a unique name and a README describing the project.
 
 ## License
+This project is licensed under the terms of the MIT license.
 
- This project is licensed under the terms of the MIT license.
-
- ![License: ](https://img.shields.io/badge/License-MIT-blueviolet.svg)
+![License: ](https://img.shields.io/badge/License-MIT-blueviolet.svg)
 
 ##
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)  ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white
