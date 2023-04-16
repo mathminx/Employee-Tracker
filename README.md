@@ -1,85 +1,107 @@
 # Employee-Tracker
+
 This command-line application was built using Node.js, Inquirer, and MySQL. It enables business owners to view and manage the departments, roles, and employees in their companies so that they can organize and plan their businesses.
 
+
 ## Table of Contents
+
 * [Installation](#installation)
 * [Usage](#usage)
-* [Tests](#tests)
 * [License](#license)
   
+  
 ## Installation
+
 You must have mySQL installed on your machine to run this application. To begin, log into mySQL by inputting `mysql -u root -p`. Press enter, and then input the password `berguss33`. Once you are logged in, create the database by typing `SOURCE db/schema.sql;` and pressing enter. Then type `SOURCE db/seeds.sql;` to add data to the database. You can now quit mySQL.
 
 To run the application, you must first load the dependencies by running `npm install` in the command line, then enter `node index.js` to start the application.
 
+
 ## Usage
+
 When you start the application, you will be presented with a menu (shown above) containing the following options: 
 
 1) View All Departments: Displays a formatted table showing department names and department ids.  
 
-![1](https://user-images.githubusercontent.com/122234007/232345375-a96c5070-bbc8-4715-ae5d-c279943f28c1.png)
+![image](https://user-images.githubusercontent.com/122234007/232346853-9d64497e-ef84-4fdd-a4e1-585667569395.png)
+
 
 2) View All Roles: Displays a formatted table showing job data, including role id, job title, the salary for that role, and the department to which the role belongs.
   
-![2](https://user-images.githubusercontent.com/122234007/232345433-5207bcf8-91ee-47da-bda3-d93b77060caa.png)
+![image](https://user-images.githubusercontent.com/122234007/232346865-516063d2-3611-4dec-907f-d68ebe0cdc0d.png)
+
 
 3) View All Employees: Displays a formatted table showing employee data, including employee id, full name, job title, salary, departments, and the employee's manager.
 
-![3](https://user-images.githubusercontent.com/122234007/232345385-0947a17e-d6b8-4ca9-be75-0517765be687.png)
+![image](https://user-images.githubusercontent.com/122234007/232346913-32a9ecc7-dfb8-4788-ac25-92a00dc15122.png)
+
 
 4) View All Employees By Manager: Displays a formatted table showing manager names and the names of their direct reports.
 
-![4](https://user-images.githubusercontent.com/122234007/232345369-058b70f3-d2dd-41ef-9811-aaf4b6ed9c2f.png)
+![image](https://user-images.githubusercontent.com/122234007/232346924-66b757eb-1fa5-4591-82da-3cfb4bf48e0c.png)
+
 
 5) View All Employees By Department: Displays a formatted table showing department ids and names, and the names of all employees in each department.
 
-![5](https://user-images.githubusercontent.com/122234007/232345501-04226bd1-a06a-40bd-8b85-d15d1e5ef65f.png)
-    
+![image](https://user-images.githubusercontent.com/122234007/232346941-a7795ca6-ad8b-4169-ab59-d93a6dc7a49f.png)
+
+
 6) View A Department's Total Utilised Budget: Prompts you for the id of the department for which you want to see the total utilised budget. If you wish to see all   departments, just press enter. Displays a formatted table showing  the department name(s), and the total utilised budget for the chosen department(s).
 
-![6 1](https://user-images.githubusercontent.com/122234007/232345524-cf499edb-bd0f-4993-bd30-72b1c66b4d69.png)
-    
-![6 all](https://user-images.githubusercontent.com/122234007/232345517-8a993bca-fce6-4b22-ad18-316c62b9ae06.png)
+![image](https://user-images.githubusercontent.com/122234007/232346957-a8d6b541-cf20-47c8-8d32-ae0faa2025e1.png)
+
+![image](https://user-images.githubusercontent.com/122234007/232346971-14c65094-8999-446e-8328-ac4952543df1.png)
+
 
 7) Add a Department: Prompts you for the name of the department you want to add, then displays the updated table of departments that includes the new department.
 
-![7](https://user-images.githubusercontent.com/122234007/232345537-4ccd00be-1440-4567-b8f6-7bfc880344b7.png)
+![image](https://user-images.githubusercontent.com/122234007/232346992-089329a3-5c9e-49ef-a1d8-7f4fd220d6bb.png)
+
 
 8) Add a Role: Prompts you for the name of the role you want to add, the salary for that role, and the the department id for the role, then displays the updated table of roles that includes the new role.
 
-![](https://user-images.githubusercontent.com/122234007/232345547-f73bf039-57f4-48e9-9ecb-b20a42eba468.png)
+![image](https://user-images.githubusercontent.com/122234007/232347012-3481ed35-f6f0-4ff3-9567-b42a1faa6d47.png)
+
 
 9) Add an Employee: Prompts you for the first name, last name, role, and manager for the new employee, then displays the updated table of employees that includes the new employee.
 
-![9](https://user-images.githubusercontent.com/122234007/232345553-c1548ab3-4f76-4495-b7f9-21ccabf716f4.png)
+![image](https://user-images.githubusercontent.com/122234007/232347027-4fed2b23-0043-4cb0-9c23-0d58fa4cf099.png)
+
 
 10) Update an Employee's Role: Prompts you for the employee id and the id of the employee's new role, then displays the updated table of employees.
 
-![10](https://user-images.githubusercontent.com/122234007/232346321-29d34480-e3ae-4054-8bcc-0959408e5549.png)
+![image](https://user-images.githubusercontent.com/122234007/232347046-5b17c73b-a726-42cc-a785-21aaea462be0.png)
+
 
 11) Update an Employee's Manager: Prompts you for the employee id and the id of the employee's new manager, then displays the updated table of employees.
 
-![](https://user-images.githubusercontent.com/122234007/232345564-abc06c78-9c86-45db-b8a1-42784991bb07.png)
+![image](https://user-images.githubusercontent.com/122234007/232347063-f7cb11f4-2ad1-4c68-b532-a5aca394480e.png)
+
 
 12) Update a Role's Salary: Prompts you for the role id and the revised salary for that role, then displays the updated table of roles.
 
-![](https://user-images.githubusercontent.com/122234007/232345575-e088558c-373b-4a60-aa88-deb3a2f13191.png)
+![image](https://user-images.githubusercontent.com/122234007/232347079-a3cb8ddb-a59b-4262-9415-0cec590febf7.png)
+
 
 13) Delete a Department: Prompts you for the id of the department you want to delete, then displays the updated table of departments that no longer includes the deleted department.
 
-![](https://user-images.githubusercontent.com/122234007/232345589-b441162e-e953-4de2-94af-a98600bc1651.png)
+![image](https://user-images.githubusercontent.com/122234007/232347091-46876f16-8f70-4f89-ac74-dcebfece1c8b.png)
+
 
 14) Delete a Role: Prompts you for the id of the role you want to delete, then displays the updated table of roles that no longer includes the deleted role.
 
-![](https://user-images.githubusercontent.com/122234007/232345595-1d62376a-e1c8-4543-9ee4-46d2fba0b4f7.png)
+![image](https://user-images.githubusercontent.com/122234007/232347108-470d69d1-d183-4446-85a4-0075595e9699.png)
+
 
 15) Delete an Employee: Prompts you for the id of the employee you want to delete, then displays the updated table of employees that no longer includes the deleted employee.
 
-![](https://user-images.githubusercontent.com/122234007/232345615-928df27c-2be6-45ac-942e-77ef42efaa3e.png)
+![image](https://user-images.githubusercontent.com/122234007/232347127-dda279d7-cd74-4a88-b252-cdb5e2dd7cbf.png)
+
 
 16) Quit: Quits the application and returns you to the command line.
 
-![](https://user-images.githubusercontent.com/122234007/232345619-22ab1ce3-1bc3-40cb-bee7-78837a5530ba.png)
+![image](https://user-images.githubusercontent.com/122234007/232347142-50e86c60-513f-4202-9ae4-fa1a05ba9510.png)
+
 
 ### Deliverables
 * A walkthrough video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
