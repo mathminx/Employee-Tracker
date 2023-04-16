@@ -1,19 +1,16 @@
 # Employee-Tracker
 This command-line application was built using Node.js, Inquirer, and MySQL. It enables business owners to view and manage the departments, roles, and employees in their companies so that they can organize and plan their businesses.
 
-
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
 * [Tests](#tests)
 * [License](#license)
- 
- 
+  
 ## Installation
 You must have mySQL installed on your machine to run this application. To begin, log into mySQL by inputting `mysql -u root -p`. Press enter, and then input the password `berguss33`. Once you are logged in, create the database by typing `SOURCE db/schema.sql;` and pressing enter. Then type `SOURCE db/seeds.sql;` to add data to the database. You can now quit mySQL.
 
 To run the application, you must first load the dependencies by running `npm install` in the command line, then enter `node index.js` to start the application.
-
 
 ## Usage
 When you start the application, you will be presented with a menu (shown above) containing the following options: 
@@ -83,13 +80,11 @@ When you start the application, you will be presented with a menu (shown above) 
 
     ![16](https://user-images.githubusercontent.com/122234007/232345619-22ab1ce3-1bc3-40cb-bee7-78837a5530ba.png)
 
-
 ### Deliverables
 * A walkthrough video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
 * The walkthrough video must show all of the technical acceptance criteria being met.
 * The walkthrough video must demonstrate how a user would invoke the application from the command line.
 * The walkthrough video must demonstrate a functional menu with the options outlined in the acceptance criteria.
-
 
 ## License
 This project is licensed under the terms of the MIT license.
