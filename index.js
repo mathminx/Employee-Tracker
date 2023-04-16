@@ -440,6 +440,6 @@ const menu = [
     type: "rawlist",
     message: "What would you like to do?",
     name: "selected",
-    choices: ["View Departments", "View Roles", "View Employees", "View Employees By Manager", "View Employees By Department", "View A Department's Total Utilised Budget", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Update an Employee's Manager", "Update a Role's Salary", "Delete a Department", "Delete a Role", "Delete an Employee", "Quit"],
+    choices: ["View All Departments", "View All Roles", "View All Employees", "View All Employees By Manager", "View All Employees By Department", "View A Department's Total Utilised Budget", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Update an Employee's Manager", "Update a Role's Salary", "Delete a Department", "Delete a Role", "Delete an Employee", "Quit"],
   }
 ];
