@@ -47,7 +47,7 @@ When you start the application, you will be presented with a menu (shown above) 
 
  8) Add a Role: Prompts you for the name of the role you want to add, the salary for that role, and the the department id for the role, then displays the updated table of roles that includes the new role.
 
-    !(https://user-images.githubusercontent.com/122234007/232345547-f73bf039-57f4-48e9-9ecb-b20a42eba468.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345547-f73bf039-57f4-48e9-9ecb-b20a42eba468.png)
 
  9) Add an Employee: Prompts you for the first name, last name, role, and manager for the new employee, then displays the updated table of employees that includes the new employee.
 
