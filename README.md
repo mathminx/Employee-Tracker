@@ -38,6 +38,7 @@ When you start the application, you will be presented with a menu (shown above) 
  6) View A Department's Total Utilised Budget: Prompts you for the id of the department for which you want to see the total utilised budget. If you wish to see all   departments, just press enter. Displays a formatted table showing  the department name(s), and the total utilised budget for the chosen department(s).
 
     ![6 1](https://user-images.githubusercontent.com/122234007/232345524-cf499edb-bd0f-4993-bd30-72b1c66b4d69.png)
+    
     ![6 all](https://user-images.githubusercontent.com/122234007/232345517-8a993bca-fce6-4b22-ad18-316c62b9ae06.png)
 
  7) Add a Department: Prompts you for the name of the department you want to add, then displays the updated table of departments that includes the new department.
