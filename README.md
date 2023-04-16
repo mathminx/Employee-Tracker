@@ -55,31 +55,31 @@ When you start the application, you will be presented with a menu (shown above) 
 
  10) Update an Employee's Role: Prompts you for the employee id and the id of the employee's new role, then displays the updated table of employees.
 
-    ![10](https://user-images.githubusercontent.com/122234007/232345561-fcb0b848-725a-4eeb-bbca-cc1b5fbd9b10.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345561-fcb0b848-725a-4eeb-bbca-cc1b5fbd9b10.png)
 
  11) Update an Employee's Manager: Prompts you for the employee id and the id of the employee's new manager, then displays the updated table of employees.
 
-    ![11](https://user-images.githubusercontent.com/122234007/232345564-abc06c78-9c86-45db-b8a1-42784991bb07.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345564-abc06c78-9c86-45db-b8a1-42784991bb07.png)
 
  12) Update a Role's Salary: Prompts you for the role id and the revised salary for that role, then displays the updated table of roles.
 
-    ![12](https://user-images.githubusercontent.com/122234007/232345575-e088558c-373b-4a60-aa88-deb3a2f13191.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345575-e088558c-373b-4a60-aa88-deb3a2f13191.png)
 
  13) Delete a Department: Prompts you for the id of the department you want to delete, then displays the updated table of departments that no longer includes the deleted department.
 
-    ![13](https://user-images.githubusercontent.com/122234007/232345589-b441162e-e953-4de2-94af-a98600bc1651.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345589-b441162e-e953-4de2-94af-a98600bc1651.png)
 
  14) Delete a Role: Prompts you for the id of the role you want to delete, then displays the updated table of roles that no longer includes the deleted role.
 
-    ![14](https://user-images.githubusercontent.com/122234007/232345595-1d62376a-e1c8-4543-9ee4-46d2fba0b4f7.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345595-1d62376a-e1c8-4543-9ee4-46d2fba0b4f7.png)
 
  15) Delete an Employee: Prompts you for the id of the employee you want to delete, then displays the updated table of employees that no longer includes the deleted employee.
 
-    ![15](https://user-images.githubusercontent.com/122234007/232345615-928df27c-2be6-45ac-942e-77ef42efaa3e.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345615-928df27c-2be6-45ac-942e-77ef42efaa3e.png)
 
  16) Quit: Quits the application and returns you to the command line.
 
-    ![16](https://user-images.githubusercontent.com/122234007/232345619-22ab1ce3-1bc3-40cb-bee7-78837a5530ba.png)
+    ![](https://user-images.githubusercontent.com/122234007/232345619-22ab1ce3-1bc3-40cb-bee7-78837a5530ba.png)
 
 ### Deliverables
 * A walkthrough video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
