@@ -94,7 +94,7 @@ When you start the application, you will be presented with a menu (shown above) 
 
  15) Delete an Employee: Prompts you for the id of the employee you want to delete, then displays the updated table of employees that no longer includes the deleted employee.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339179-1e67ce0c-b103-45af-ba5d-aefb67a5aa80.png)
+    ![image](https://user-images.githubusercontent.com/122234007/232339965-6c3e09e2-950a-4e5a-9fb4-08d93c7dd064.png)
 
  16) Quit: Quits the application and returns you to the command line.
 
