@@ -54,7 +54,7 @@ When you start the application, you will be presented with a menu (shown above) 
     ![9](https://user-images.githubusercontent.com/122234007/232345553-c1548ab3-4f76-4495-b7f9-21ccabf716f4.png)
 
  10) Update an Employee's Role: Prompts you for the employee id and the id of the employee's new role, then displays the updated table of employees.
-
+<br>
     ![](https://user-images.githubusercontent.com/122234007/232345561-fcb0b848-725a-4eeb-bbca-cc1b5fbd9b10.PNG)
 
  11) Update an Employee's Manager: Prompts you for the employee id and the id of the employee's new manager, then displays the updated table of employees.
