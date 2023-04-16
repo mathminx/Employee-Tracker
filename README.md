@@ -21,7 +21,11 @@ To run the application, you must first load the dependencies by running `npm ins
 
 When you start the application, you will be presented with a menu containing the following options: 
 
-![image](https://user-images.githubusercontent.com/122234007/232347297-07e73e1b-a49d-4910-9c33-73923795b7df.png) ![image](https://user-images.githubusercontent.com/122234007/232347490-2f04457a-0ab6-4362-9829-0a0a003ec6bc.png) ![image](https://user-images.githubusercontent.com/122234007/232347362-08ec6afe-70e9-4b49-be17-650c8bec7e69.png)
+![image](https://user-images.githubusercontent.com/122234007/232347297-07e73e1b-a49d-4910-9c33-73923795b7df.png)
+
+![image](https://user-images.githubusercontent.com/122234007/232347490-2f04457a-0ab6-4362-9829-0a0a003ec6bc.png)
+
+![image](https://user-images.githubusercontent.com/122234007/232347362-08ec6afe-70e9-4b49-be17-650c8bec7e69.png)
 
 
 1) View All Departments: Displays a formatted table showing department names and department ids.  
