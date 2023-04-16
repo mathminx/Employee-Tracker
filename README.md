@@ -20,13 +20,10 @@ When you start the application, you will be presented with a menu (shown above) 
 
  1) View All Departments: Displays a formatted table showing department names and department ids.
 
-    ![1](https://user-images.githubusercontent.com/122234007/232345080-8b2d41af-9236-4ec1-88c5-2029acb42acc.png)
-    
+    ![1](https://user-images.githubusercontent.com/122234007/232345080-8b2d41af-9236-4ec1-88c5-2029acb42acc.png)    
     
  2) View All Roles: Displays a formatted table showing job data, including role id, job title, the salary for that role, and the department to which the role belongs.
-
-    ![2](https://user-images.githubusercontent.com/122234007/232342475-bd345681-65d9-4477-bccd-ec66056c6991.jpg)
-    
+  
     ![2](https://user-images.githubusercontent.com/122234007/232345149-7418081c-6246-415c-a5f3-32f6929ece6e.png)
 
 
