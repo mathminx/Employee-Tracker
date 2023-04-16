@@ -18,22 +18,21 @@ To run the application, you must first load the dependencies by running `npm ins
 ## Usage
 When you start the application, you will be presented with a menu (shown above) containing the following options: 
 
- 1) View All Departments: Displays a formatted table showing department names and department ids.
+ 1) View All Departments: Displays a formatted table showing department names and department ids.  
 
-    ![1](https://user-images.githubusercontent.com/122234007/232345080-8b2d41af-9236-4ec1-88c5-2029acb42acc.png)    
-    
+    ![1](https://user-images.githubusercontent.com/122234007/232345375-a96c5070-bbc8-4715-ae5d-c279943f28c1.png)
+
  2) View All Roles: Displays a formatted table showing job data, including role id, job title, the salary for that role, and the department to which the role belongs.
   
     ![2](https://user-images.githubusercontent.com/122234007/232345149-7418081c-6246-415c-a5f3-32f6929ece6e.png)
 
-
  3) View All Employees: Displays a formatted table showing employee data, including employee id, full name, job title, salary, departments, and the employee's manager.
 
-    ![3](https://user-images.githubusercontent.com/122234007/232342345-bc51c3b5-733b-4dba-9802-fe91bbf42a07.jpg)
+    ![3](https://user-images.githubusercontent.com/122234007/232345385-0947a17e-d6b8-4ca9-be75-0517765be687.png)
 
  4) View All Employees By Manager: Displays a formatted table showing manager names and the names of their direct reports.
 
-    ![4](https://user-images.githubusercontent.com/122234007/232342367-f0e5cf2f-ea11-4f9d-bf1c-baf9827b93b4.jpg)
+    ![4](https://user-images.githubusercontent.com/122234007/232345369-058b70f3-d2dd-41ef-9811-aaf4b6ed9c2f.png)
 
  5) View All Employees By Department: Displays a formatted table showing department ids and names, and the names of all employees in each department.
 
