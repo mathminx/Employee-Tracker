@@ -16,9 +16,31 @@ This command-line application was built to manage a company's employee database,
  
 ## Installation
 
-You must have mySQL installed on your machine. Log into mySQL by inputting `mysql -u root -p`. Press enter, and then input the password `bergus33`. Once you are logged in, create the database by typing `SOURCE db/schema.sql;` and pressing enter. Then type `SOURCE db/seeds.sql;` to add data to the database. You can now quit mySQL.
+You must have mySQL installed on your machine to run this application. To begin, log into mySQL by inputting `mysql -u root -p`. Press enter, and then input the password `berguss33`. 
+
+![image](https://user-images.githubusercontent.com/122234007/232338352-2ca1ae55-a550-49c1-bc7d-24f0e48ec5ae.png)
+
+
+Once you are logged in, create the database by typing `SOURCE db/schema.sql;` and pressing enter. 
+
+![image](https://user-images.githubusercontent.com/122234007/232338389-d122534a-84ba-499e-8a90-64e054ab330f.png)
+
+
+Then type `SOURCE db/seeds.sql;` to add data to the database. 
+
+![image](https://user-images.githubusercontent.com/122234007/232338413-b92a5894-3462-4fcd-a5db-f8ebbe9065f7.png)
+
+
+You can now quit mySQL.
+
+![image](https://user-images.githubusercontent.com/122234007/232338448-5f0d5635-8bf0-4faa-b665-693528be6bed.png)
+
 
 To run the application locally, load dependencies by running `npm install` in the command line, followed by `node index.js` to start the application.
+
+![image](https://user-images.githubusercontent.com/122234007/232338494-d4acdc06-4609-4f9f-ad90-e83fab33caf4.png)
+
+![image](https://user-images.githubusercontent.com/122234007/232338527-8c44d35f-8f28-4b32-9734-8d3ecf0b468f.png)
 
 
 ## Usage
