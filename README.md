@@ -20,39 +20,39 @@ When you start the application, you will be presented with a menu (shown above) 
 
  1) View All Departments: Displays a formatted table showing department names and department ids.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338824-208826f5-6cdf-4203-933e-17fb1152ad75.png)
+    ![1](https://user-images.githubusercontent.com/122234007/232341787-6fb82aee-5011-489e-b8ff-53ea839a1b63.jpg)
 
  2) View All Roles: Displays a formatted table showing job data, including role id, job title, the salary for that role, and the department to which the role belongs.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338858-d4528dd3-20bc-46bb-b4ec-ca19ea2dd231.png)
+    ![2](https://user-images.githubusercontent.com/122234007/232342329-8a029bba-0505-4b39-aa82-28414b5d7f34.jpg)
 
  3) View All Employees: Displays a formatted table showing employee data, including employee id, full name, job title, salary, departments, and the employee's manager.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338878-7c3c7a23-c617-4d3b-a1ce-9a2390437af0.png)
+    ![3](https://user-images.githubusercontent.com/122234007/232342345-bc51c3b5-733b-4dba-9802-fe91bbf42a07.jpg)
 
  4) View All Employees By Manager: Displays a formatted table showing manager names and the names of their direct reports.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338899-1ed2ec3f-28ed-428d-a77e-0fbf65269dbe.png)
+    ![4](https://user-images.githubusercontent.com/122234007/232342367-f0e5cf2f-ea11-4f9d-bf1c-baf9827b93b4.jpg)
 
  5) View All Employees By Department: Displays a formatted table showing department ids and names, and the names of all employees in each department.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338919-965e741d-3d29-4119-9522-98e39413a49e.png)
+    ![5](https://user-images.githubusercontent.com/122234007/232342376-7fa8b95c-2b3e-4876-b86a-baf5cbfedb5d.jpg)
 
  6) View A Department's Total Utilised Budget: Prompts you for the id of the department for which you want to see the total utilised budget. If you wish to see all   departments, just press enter. Displays a formatted table showing  the department name(s), and the total utilised budget for the chosen department(s).
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338950-61fc0db9-eb68-48ca-9760-ec877a2aab05.png)
+    ![6](https://user-images.githubusercontent.com/122234007/232342383-8f807eec-813f-49a2-a5f1-52869f9bcef3.jpg)
 
  7) Add a Department: Prompts you for the name of the department you want to add, then displays the updated table of departments that includes the new department.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338967-ede1b8eb-807e-4e1d-9037-8712e5fd6112.png)
+    ![7](https://user-images.githubusercontent.com/122234007/232342392-12455576-4970-41e9-b0b2-f985d3fc48f7.jpg)
 
  8) Add a Role: Prompts you for the name of the role you want to add, the salary for that role, and the the department id for the role, then displays the updated table of roles that includes the new role.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232338989-3a55b750-e857-4951-8c3c-4eec3e7b5e0f.png)
+    ![8](https://user-images.githubusercontent.com/122234007/232342403-f86b2d23-9b79-431a-a98e-97a3a7d5b0f8.jpg)
 
  9) Add an Employee: Prompts you for the first name, last name, role, and manager for the new employee, then displays the updated table of employees that includes the new employee.
 
-    ![image](https://user-images.githubusercontent.com/122234007/232339024-1ec08c81-72ef-48bf-9420-2cb3561dcec2.png)
+    ![9](https://user-images.githubusercontent.com/122234007/232342409-d602c6e2-2f02-400e-8a89-19d1d258897a.jpg)
 
  10) Update an Employee's Role: Prompts you for the employee id and the id of the employee's new role, then displays the updated table of employees.
 
