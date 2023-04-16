@@ -29,127 +29,122 @@ function getMenu () {
     .then((selection) => {
       const userSelection = selection.selected;
       switch (userSelection) {
-        case "View Departments":
+        case "View all departments":
           viewDepartments();
           break;
-        case "View Roles":
+        case "View all roles":
           viewRoles();
           break;
-        case "View Employees":
+        case "View all employees":
           viewEmployees();
           break;
-        case "View Employees By Manager":
+        case "View all employees by manager":
           viewEmployeesByManager();
           break;
-        case "View Employees By Department":
+        case "View all employees by department":
           viewEmployeesByDepartment()
           break;
-        case "View A Department's Total Utilised Budget":
+        case "View a department's total utilised budget":
           viewDepartmentBudget();
           break;
-        case "Add a Department":
+        case "Add a department":
           addDepartment();
           break;
-        case "Add a Role":
+        case "Add a role":
           addRole();
           break;
-        case "Add an Employee":
+        case "Add an employee":
           addEmployee();
           break;
-        case "Update an Employee's Role":
+        case "Update an employee's role":
           updateEmployeeRole();
           break;
-        case "Update an Employee's Manager":
+        case "Update an employee's manager":
           updateEmployeeManager();
           break;  
-        case "Update a Role's Salary":
+        case "Update a role's salary":
           updateRoleSalary();
           break;  
-        case "Delete a Department":
+        case "Delete a department":
           deleteDepartment();
           break;
-        case "Delete a Role":
+        case "Delete a role":
           deleteRole();
           break;
-        case "Delete an Employee":
+        case "Delete an employee":
           deleteEmployee();
           break;     
         case "Quit":
-        console.log("Goodbye.");
-        db.end();
+          console.log("Goodbye.");
+          db.end();
       };
     });
 };
 
-// View department table
+// 1. View all departments
 function viewDepartments () {
   console.log(`\nFetching Departments...\n`);
   db.query(
     'SELECT id AS Department_ID, name AS Department_Name FROM department', function (err, results) {
       if (err)
         throw(err);
-      console.log(`\n`);
       printTable(results); 
       console.log(`\n`);
       getMenu();
   });
 };
 
-// View role table
+// 2. View all roles
 function viewRoles() {
   console.log(`\nFetching Roles...\n`)
   db.query (
     'SELECT role.id AS Role_ID, title AS Title, FORMAT(salary, 2) AS Salary, department.name AS Department_Name FROM role LEFT JOIN department ON role.department_id=department.id;', function (err, results) {
       if (err)
         throw(err);
-      console.log(`\n`);
       printTable(results);
       console.log(`\n`);
       getMenu();
   });
 };
 
-// View employee table
+// 3. View all employees
 function viewEmployees() {
   console.log(`\nFetching Employees...\n`)
   db.query (
     'SELECT employee.id AS Employee_ID, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name, role.title AS Role, FORMAT(role.salary, 2) AS Salary, department.name AS Department_Name, CONCAT_WS(" ", manager.first_name,  manager.last_name) AS Manager_Name FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id LEFT JOIN employee AS manager ON manager.id = employee.manager_id;', function (err, results) {
       if (err)
         throw(err);
-      console.log(`\n`);
       printTable(results);
       console.log(`\n`);
       getMenu();
   });
 };
 
-// View employees by manager
+// 4. View all employees by manager
 function viewEmployeesByManager() {
   db.query (
     'SELECT CONCAT_WS(" ", manager.first_name,  manager.last_name) AS Manager_Name, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name FROM employee LEFT JOIN employee AS manager ON manager.id = employee.manager_id WHERE employee.manager_id IS NOT NULL GROUP BY manager.last_name, manager.first_name, employee.last_name, employee.first_name ORDER BY manager.last_name, employee.last_name;' , function (err, results) {
       if (err)
         throw(err);
-      console.log(`\n`);
       printTable(results);
       console.log(`\n`);
       getMenu();
   });
 };
 
-// View employees by department
+// 5. View all employees by department
 function viewEmployeesByDepartment() {
   db.query (
     'SELECT department.id AS Department_ID, department.name AS Department_Name, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id GROUP BY Department_ID, Department_Name, employee.last_name, employee.first_name ORDER BY Department_ID, employee.last_name, employee.first_name;', function (err, results) {
       if (err)
         throw(err);
-      console.log(`\n`);
       printTable(results);
       console.log(`\n`);
       getMenu();
   });
 };
 
-// View budget for a department
+// 6. View budget for a department
 function viewDepartmentBudget() {
   inquirer
     .prompt(viewDeptBudget) 
@@ -178,7 +173,7 @@ function viewDepartmentBudget() {
     });
 }
 
-// Add a Department
+// 7. Add a department
 function addDepartment() {
   inquirer
     .prompt(newDepartment) 
@@ -193,7 +188,7 @@ function addDepartment() {
     });
 }
 
-// Add a Role
+// 8. Add a role
 function addRole() {
   inquirer
     .prompt(newRole) 
@@ -210,7 +205,7 @@ function addRole() {
   });
 }
 
-// Add an Employee
+// 9. Add an employee
 function addEmployee() {
   inquirer
     .prompt(newEmployee) 
@@ -230,7 +225,7 @@ function addEmployee() {
     });
 }
 
-// Update an employee's role
+// 10. Update an employee's role
 function updateEmployeeRole() {
   inquirer
     .prompt(changeEmployeeRole) 
@@ -243,7 +238,7 @@ function updateEmployeeRole() {
     });
 }
 
-// Update an employee's manager
+// 11. Update an employee's manager
 function updateEmployeeManager() {
   inquirer
     .prompt(changeEmployeeManager) 
@@ -256,7 +251,7 @@ function updateEmployeeManager() {
     });
 }
 
-// Update a role's salary
+// 12. Update a role's salary
 function updateRoleSalary() {
   inquirer
     .prompt(changeRoleSalary) 
@@ -269,7 +264,7 @@ function updateRoleSalary() {
     });
 }
 
-// Delete a Department
+// 13. Delete a department
 function deleteDepartment() {
   inquirer
     .prompt(delDepartment) 
@@ -285,7 +280,7 @@ function deleteDepartment() {
     });
 }
 
-// Delete a Role
+// 14. Delete a role
 function deleteRole() {
   inquirer
     .prompt(delRole) 
@@ -300,7 +295,7 @@ function deleteRole() {
   });
 }
 
-// Delete an Employee
+// 15. Delete an employee
 function deleteEmployee() {
   inquirer
     .prompt(delEmployee) 
@@ -440,6 +435,6 @@ const menu = [
     type: "rawlist",
     message: "What would you like to do?",
     name: "selected",
-    choices: ["View All Departments", "View All Roles", "View All Employees", "View All Employees By Manager", "View All Employees By Department", "View A Department's Total Utilised Budget", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Update an Employee's Manager", "Update a Role's Salary", "Delete a Department", "Delete a Role", "Delete an Employee", "Quit"],
+    choices: ["View all departments", "View all roles", "View all employees", "View all employees by manager", "View all employees by department", "View a department's total utilised budget", "Add a department", "Add a role", "Add an employee", "Update an employee's role", "Update an employee's manager", "Update a role's salary", "Delete a department", "Delete a role", "Delete an employee", "Quit"],
   }
 ];
