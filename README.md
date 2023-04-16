@@ -32,9 +32,12 @@ You can now quit mySQL.
 ![image](https://user-images.githubusercontent.com/122234007/232338448-5f0d5635-8bf0-4faa-b665-693528be6bed.png)
 
 
-To run the application locally, load dependencies by running `npm install` in the command line, followed by `node index.js` to start the application.
+To run the application locally, load dependencies by running `npm install` in the command line.
 
 ![image](https://user-images.githubusercontent.com/122234007/232338494-d4acdc06-4609-4f9f-ad90-e83fab33caf4.png)
+
+
+Then enter `node index.js` to start the application.
 
 ![image](https://user-images.githubusercontent.com/122234007/232338527-8c44d35f-8f28-4b32-9734-8d3ecf0b468f.png)
 
