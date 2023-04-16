@@ -1,8 +1,6 @@
 # Employee-Tracker
 
-## Your Task
-
-This command-line application was built to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+This command-line application was built using Node.js, Inquirer, and MySQL. It enables business owners to view and manage the departments, roles, and employees in their companies so that they can organize and plan their businesses.
 
 ![image](https://user-images.githubusercontent.com/122234007/232338202-65af23d9-b253-48d8-9d7f-10767cfdda9f.png)
 
