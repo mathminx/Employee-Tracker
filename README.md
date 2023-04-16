@@ -1,36 +1,19 @@
 # Employee-Tracker
 This command-line application was built using Node.js, Inquirer, and MySQL. It enables business owners to view and manage the departments, roles, and employees in their companies so that they can organize and plan their businesses.
 
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
 * [Tests](#tests)
 * [License](#license)
  
+ 
 ## Installation
-You must have mySQL installed on your machine to run this application. To begin, log into mySQL by inputting `mysql -u root -p`. Press enter, and then input the password `berguss33`. 
+You must have mySQL installed on your machine to run this application. To begin, log into mySQL by inputting `mysql -u root -p`. Press enter, and then input the password `berguss33`. Once you are logged in, create the database by typing `SOURCE db/schema.sql;` and pressing enter. Then type `SOURCE db/seeds.sql;` to add data to the database. You can now quit mySQL.
 
-![image](https://user-images.githubusercontent.com/122234007/232338352-2ca1ae55-a550-49c1-bc7d-24f0e48ec5ae.png)
+To run the application, you must first load the dependencies by running `npm install` in the command line, then enter `node index.js` to start the application.
 
-Once you are logged in, create the database by typing `SOURCE db/schema.sql;` and pressing enter. 
-
-![image](https://user-images.githubusercontent.com/122234007/232338389-d122534a-84ba-499e-8a90-64e054ab330f.png)
-
-Then type `SOURCE db/seeds.sql;` to add data to the database. 
-
-![image](https://user-images.githubusercontent.com/122234007/232338413-b92a5894-3462-4fcd-a5db-f8ebbe9065f7.png)
-
-You can now quit mySQL.
-
-![image](https://user-images.githubusercontent.com/122234007/232338448-5f0d5635-8bf0-4faa-b665-693528be6bed.png)
-
-To run the application locally, load dependencies by running `npm install` in the command line.
-
-![image](https://user-images.githubusercontent.com/122234007/232338494-d4acdc06-4609-4f9f-ad90-e83fab33caf4.png)
-
-Then enter `node index.js` to start the application.
-
-![image](https://user-images.githubusercontent.com/122234007/232338527-8c44d35f-8f28-4b32-9734-8d3ecf0b468f.png)
 
 ## Usage
 When you start the application, you will be presented with a menu (shown above) containing the following options: 
