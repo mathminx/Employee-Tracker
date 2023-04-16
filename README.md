@@ -24,7 +24,7 @@ When you start the application, you will be presented with a menu (shown above) 
 
  2) View All Roles: Displays a formatted table showing job data, including role id, job title, the salary for that role, and the department to which the role belongs.
   
-    ![2](https://user-images.githubusercontent.com/122234007/232345149-7418081c-6246-415c-a5f3-32f6929ece6e.png)
+    ![2](https://user-images.githubusercontent.com/122234007/232345433-5207bcf8-91ee-47da-bda3-d93b77060caa.png)
 
  3) View All Employees: Displays a formatted table showing employee data, including employee id, full name, job title, salary, departments, and the employee's manager.
 
