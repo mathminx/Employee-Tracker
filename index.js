@@ -38,6 +38,15 @@ function getMenu () {
         case "View Employees":
           viewEmployees();
           break;
+        case "View Employees By Manager":
+          viewEmployeesByManager();
+          break;
+        case "View Employees By Department":
+          viewEmployeesByDepartment()
+          break;
+        case "View A Department's Total Utilised Budget":
+          viewDepartmentBudget();
+          break;
         case "Add a Department":
           addDepartment();
           break;
@@ -52,6 +61,9 @@ function getMenu () {
           break;
         case "Update an Employee's Manager":
           updateEmployeeManager();
+          break;  
+        case "Update a Role's Salary":
+          updateRoleSalary();
           break;  
         case "Delete a Department":
           deleteDepartment();
@@ -77,7 +89,7 @@ function viewDepartments () {
       if (err)
         throw(err);
       console.log(`\n`);
-      printTable(results);
+      printTable(results); 
       console.log(`\n`);
       getMenu();
   });
@@ -101,14 +113,70 @@ function viewRoles() {
 function viewEmployees() {
   console.log(`\nFetching Employees...\n`)
   db.query (
-    'SELECT employee.id AS Employee_ID, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name, role.title AS Role, FORMAT(role.salary, 2) AS Salary, department.name AS Department_Name, CONCAT_WS(" ", manager.first_name,  manager.last_name) AS Manager_Name FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id LEFT JOIN employee AS manager ON manager.id = employee.manager_id', function (err, results) {
+    'SELECT employee.id AS Employee_ID, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name, role.title AS Role, FORMAT(role.salary, 2) AS Salary, department.name AS Department_Name, CONCAT_WS(" ", manager.first_name,  manager.last_name) AS Manager_Name FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id LEFT JOIN employee AS manager ON manager.id = employee.manager_id;', function (err, results) {
       if (err)
         throw(err);
-    printTable(results);
-    console.log(`\n`);
-    getMenu();
+      console.log(`\n`);
+      printTable(results);
+      console.log(`\n`);
+      getMenu();
   });
 };
+
+// View employees by manager
+function viewEmployeesByManager() {
+  db.query (
+    'SELECT CONCAT_WS(" ", manager.first_name,  manager.last_name) AS Manager_Name, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name FROM employee LEFT JOIN employee AS manager ON manager.id = employee.manager_id WHERE employee.manager_id IS NOT NULL GROUP BY manager.last_name, manager.first_name, employee.last_name, employee.first_name ORDER BY manager.last_name, employee.last_name;' , function (err, results) {
+      if (err)
+        throw(err);
+      console.log(`\n`);
+      printTable(results);
+      console.log(`\n`);
+      getMenu();
+  });
+};
+
+// View employees by department
+function viewEmployeesByDepartment() {
+  db.query (
+    'SELECT department.id AS Department_ID, department.name AS Department_Name, CONCAT_WS(" ",employee.first_name, employee.last_name) AS Employee_Name FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id GROUP BY Department_ID, Department_Name, employee.last_name, employee.first_name ORDER BY Department_ID, employee.last_name, employee.first_name;', function (err, results) {
+      if (err)
+        throw(err);
+      console.log(`\n`);
+      printTable(results);
+      console.log(`\n`);
+      getMenu();
+  });
+};
+
+// View budget for a department
+function viewDepartmentBudget() {
+  inquirer
+    .prompt(viewDeptBudget) 
+    .then((response) => {
+      const departmentId = response.id;
+      if (!departmentId) {
+        db.query (
+          `SELECT name AS Department_Name, SUM(salary) AS Total_Utilised_Budget FROM employee LEFT JOIN role ON role.id = employee.role_id JOIN department ON department.id = role.department_id GROUP BY department.name ORDER BY department.name;`, 
+        function (err, results) {   
+          if (err)
+            throw(err);
+          printTable(results);
+          getMenu();
+        });
+      }
+      else {
+        db.query (
+          `SELECT name AS Department_Name, SUM(salary) AS Total_Utilised_Budget FROM employee LEFT JOIN role ON role.id = employee.role_id JOIN department ON department.id = role.department_id WHERE department.id = ${departmentId} GROUP BY department.name;`,
+        function (err, results) {   
+          if (err)
+            throw(err);
+          printTable(results);
+          getMenu();
+        });
+      };
+    });
+}
 
 // Add a Department
 function addDepartment() {
@@ -116,14 +184,12 @@ function addDepartment() {
     .prompt(newDepartment) 
     .then((response) => {
       const name = response.name;
-      console.log(name);
       db.query (`INSERT INTO department (name) VALUES ("${name}")`, function (err, results) {
         if (err)
           throw(err);
-        console.log("added to department table.");
+        console.log(`${name} added to department table.`);
         viewDepartments();
       });
-      
     });
 }
 
@@ -138,7 +204,7 @@ function addRole() {
       db.query (`INSERT INTO role (title, salary, department_id) VALUES ("${title}", "${salary}", "${deptId}")`, function (err, results) {
         if (err)
           throw(err);
-      console.log("added to role table.");
+      console.log(`${title} added to role table.`);
       viewRoles();
     });
   });
@@ -159,12 +225,12 @@ function addEmployee() {
         const managerId = response.managerId;
         db.query (`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}", "${lastName}", "${roleId}", "${managerId}")`);
       }
-      console.log(firstName + " " + lastName + " added to employee table.");
+      console.log(`${firstName} ${lastName} added to employee table.`);
       viewEmployees ();
     });
 }
 
-// Change an employee's role
+// Update an employee's role
 function updateEmployeeRole() {
   inquirer
     .prompt(changeEmployeeRole) 
@@ -177,7 +243,7 @@ function updateEmployeeRole() {
     });
 }
 
-// Change an employee's manager
+// Update an employee's manager
 function updateEmployeeManager() {
   inquirer
     .prompt(changeEmployeeManager) 
@@ -187,6 +253,19 @@ function updateEmployeeManager() {
       db.query (`UPDATE employee SET manager_id=${newManagerId} WHERE id=${employeeId};`);
       console.log("Employee manager updated.");
       viewEmployees ();
+    });
+}
+
+// Update a role's salary
+function updateRoleSalary() {
+  inquirer
+    .prompt(changeRoleSalary) 
+    .then((response) => {
+      const roleId = response.roleId;
+      const newSalary = response.salary;
+      db.query (`UPDATE role SET salary=${newSalary} WHERE id=${roleId};`);
+      console.log("Salary updated.");
+      viewRoles();
     });
 }
 
@@ -236,6 +315,13 @@ function deleteEmployee() {
   });
 }
 
+const viewDeptBudget = [
+  {
+    type: "input",
+    message: "What is the id of the department for which you want to see the total utilised budget? (Press enter to see all departments)",
+    name: "id",
+  }
+]
 const newDepartment = [
   {
     type: "input",
@@ -311,6 +397,19 @@ const changeEmployeeManager = [
   }
 ]
 
+const changeRoleSalary = [
+  {
+    type: "input",
+    message: "What is the role id?",
+    name: "roleId",
+  },
+  {
+    type: "input",
+    message: "What is the new salary for this role?",
+    name: "salary",
+  }
+]
+
 const delDepartment = [
   {
     type: "input",
@@ -341,6 +440,6 @@ const menu = [
     type: "rawlist",
     message: "What would you like to do?",
     name: "selected",
-    choices: ["View Departments", "View Roles", "View Employees", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Update an Employee's Manager", "Delete a Department", "Delete a Role", "Delete an Employee", "Quit"],
+    choices: ["View Departments", "View Roles", "View Employees", "View Employees By Manager", "View Employees By Department", "View A Department's Total Utilised Budget", "Add a Department", "Add a Role", "Add an Employee", "Update an Employee's Role", "Update an Employee's Manager", "Update a Role's Salary", "Delete a Department", "Delete a Role", "Delete an Employee", "Quit"],
   }
 ];
