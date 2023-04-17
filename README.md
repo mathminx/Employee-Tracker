@@ -1,6 +1,8 @@
 # Employee-Tracker
 
-This command-line application was built using Node.js, Inquirer, and MySQL. It enables business owners to view and manage the departments, roles, and employees in their companies so that they can organize and plan their businesses.
+This command-line application was built using Node.js, Inquirer, and MySQL. It enables business owners to view and manage the departments, roles, and employees in their companies so that they can organize and plan their businesses. The video link below demonstrates how to install and use the application.
+
+https://watch.screencastify.com/v/suUrrlSqaD27M2xdPDcD
 
 
 ## Table of Contents
@@ -108,16 +110,11 @@ When you start the application, you will be presented with a menu containing the
 ![image](https://user-images.githubusercontent.com/122234007/232347142-50e86c60-513f-4202-9ae4-fa1a05ba9510.png)
 
 
-### Deliverables
-* A walkthrough video that demonstrates the functionality of the employee tracker must be submitted, and a link to the video should be included in your README file.
-* The walkthrough video must show all of the technical acceptance criteria being met.
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-* The walkthrough video must demonstrate a functional menu with the options outlined in the acceptance criteria.
-
 ## License
 This project is licensed under the terms of the MIT license.
 
 ![License: ](https://img.shields.io/badge/License-MIT-blueviolet.svg)
+
 
 ##
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)  ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)  
